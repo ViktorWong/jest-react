@@ -24,3 +24,20 @@ it("Header组件回车后，undoList应该新增内容，内容为输入框内�
     expect(wrapper.state('undoList').length).toBe(1)
     expect(wrapper.state('undoList')[0]).toBe('待办事项')
   });
+
+  it("TodoList应该给UndoList传递一个list数组和 delBtn方法", () => {
+    const wrapper = shallow(<TodoList />);
+    const UndoList = wrapper.find('UndoList')
+    expect(UndoList.prop('delBtn')).toBeTruthy()
+    expect(UndoList.prop('list')).toBeTruthy()
+  });
+
+  it("TodoList中delBtn方法，应该删除内容", () => {
+    const wrapper = shallow(<TodoList />);
+    const UndoList = wrapper.find('UndoList')
+    wrapper.setState({
+        undoList:['1','2','3']
+    })
+    wrapper.instance().delBtn(1)
+    expect(wrapper.state('undoList')).toEqual(['1','3'])
+  });
