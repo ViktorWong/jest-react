@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`UndoList UndoList 组件渲染正确 1`] = `
+<div
+  className="undolist-container"
+>
+  <div
+    className="undolist-title"
+  >
+    <h2>
+      正在进行
+    </h2>
+    <div
+      className="count-badge"
+      data-test="count"
+    >
+      0
+    </div>
+  </div>
+  <ul
+    className="ul-container"
+  />
+</div>
+`;

@@ -7,22 +7,26 @@ export default class UndoList extends Component {
   }
 
   render() {
-    const { list, delBtn } = this.props;
+    const { list = [], delBtn } = this.props;
     return (
       <div className="undolist-container">
-        <div data-test="count">{list.length}</div>
-        <ul>
+        <div className="undolist-title">
+          <h2>正在进行</h2>
+          <div data-test="count" className="count-badge">{list.length}</div>
+        </div>
+        <ul className="ul-container">
           {list.map((item, index) => {
             return (
-              <li data-test="list-item" key={item + "-" + index}>
+              <li data-test="list-item" key={item + "-" + index} className="li-item">
                 <span>{item}</span>
                 <button
                   data-test="del-btn"
                   onClick={() => {
                     delBtn(index);
                   }}
+                  className="del-btn"
                 >
-                  删除
+                  -
                 </button>
               </li>
             );

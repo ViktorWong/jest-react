@@ -2,6 +2,9 @@
   margin: 0;
   padding: 0;
 }
+body {
+  background-color: #e6e6e6;
+}
 
 .header-container {
   width: 100%;
@@ -25,4 +28,53 @@
   outline: none;
   border-radius: 4px;
   border: none;
+}
+
+.undolist-title {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 400px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.count-badge {
+  width: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  text-align: center;
+  line-height: 20px;
+}
+
+.ul-container {
+  width: 100%;
+  padding: 0 400px;
+  box-sizing: border-box;
+}
+
+.li-item {
+  box-sizing: border-box;
+  width: 100%;
+  background-color: #fff;
+  border-left: 3px solid #629a9c;
+  border-radius: 3px;
+  height: 28px;
+  padding: 0 10px;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.del-btn {
+  width: 15px;
+  height: 15px;
+  line-height: 15px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  background-color: #e6e6e6;
 }
