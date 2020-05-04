@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with data-name 1`] = `
+<div
+  className="App"
+  data-name="App"
+  title="hello"
+>
+  hello world
+</div>
+`;
