@@ -33,7 +33,7 @@ export default class Header extends Component {
         <input
           className="header-input"
           type="text"
-          data-test="input"
+          data-test="header-input"
           value={value}
           onChange={this.handleChange}
           onKeyUp={this.handleKeyUp}

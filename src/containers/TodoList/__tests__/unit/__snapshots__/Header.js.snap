@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header 组件 Header 组件渲染正确 1`] = `
+exports[`Header 组件 组件样式渲染正确 1`] = `
 <div
   className="header-container"
 >
@@ -11,7 +11,7 @@ exports[`Header 组件 Header 组件渲染正确 1`] = `
   </span>
   <input
     className="header-input"
-    data-test="input"
+    data-test="header-input"
     onChange={[Function]}
     onKeyUp={[Function]}
     type="text"

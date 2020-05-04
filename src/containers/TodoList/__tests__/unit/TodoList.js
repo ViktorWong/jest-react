@@ -2,6 +2,7 @@ import React from "react";
 import { shallow } from "enzyme";
 import TodoList from "../../index";
 
+
 describe("TodoList 页面", () => {
   it("TodoList 初始化列表为空", () => {
     const wrapper = shallow(<TodoList />);
@@ -18,13 +19,11 @@ describe("TodoList 页面", () => {
 
   it("Header组件回车后，undoList应该新增内容，内容为输入框内容", () => {
     const wrapper = shallow(<TodoList />);
-    const Header = wrapper.find("Header");
-    const addFunc = Header.prop("addUndoItem");
-    addFunc("待办事项");
+    wrapper.instance().addUndoItem('add text');
     expect(wrapper.state("undoList").length).toBe(1);
     expect(wrapper.state("undoList")[0]).toEqual({
       status: "0",
-      value: "待办事项",
+      value: "add text",
     });
   });
 
@@ -33,7 +32,7 @@ describe("TodoList 页面", () => {
     const UndoList = wrapper.find("UndoList");
     expect(UndoList.prop("delBtn")).toBeTruthy();
     expect(UndoList.prop("list")).toBeTruthy();
-    expect(UndoList.prop("list")).toBeTruthy();
+    expect(UndoList.prop("changeStatus")).toBeTruthy();
     expect(UndoList.prop("handleBlur")).toBeTruthy();
     expect(UndoList.prop("valueChange")).toBeTruthy();
   });
@@ -136,6 +135,10 @@ describe("TodoList 页面", () => {
         {
           status: "1",
           value: "1",
+        },
+        {
+          status: "0",
+          value: "2",
         },
       ],
     });

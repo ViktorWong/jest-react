@@ -4,17 +4,7 @@ import UndoList from "../../components/UndoList";
 
 describe("UndoList", () => {
   it("UndoList 组件渲染正确", () => {
-    const testList = [
-      {
-        status: "1",
-        value: "待办1",
-      },
-      {
-        status: "0",
-        value: "待办2",
-      }
-    ];
-    const wrapper = shallow(<UndoList list={testList}/>);
+    const wrapper = shallow(<UndoList list={[]}/>);
     expect(wrapper).toMatchSnapshot();
   });
 
@@ -87,7 +77,9 @@ describe("UndoList", () => {
     ];
     const wrapper = shallow(<UndoList list={testList} delBtn={fn} />);
     const delElems = wrapper.find('[data-test="del-btn"]');
-    delElems.at(index).simulate("click");
+    delElems.at(index).simulate("click",{
+      stopPropagation:() =>{}
+    });
     expect(fn).toHaveBeenLastCalledWith(index);
   });
 
