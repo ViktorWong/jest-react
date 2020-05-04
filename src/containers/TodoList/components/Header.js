@@ -28,8 +28,10 @@ export default class Header extends Component {
   render() {
     const { value } = this.state;
     return (
-      <div>
+      <div className="header-container">
+        <span className="header-title">TodoList</span>
         <input
+          className="header-input"
           type="text"
           data-test="input"
           value={value}
