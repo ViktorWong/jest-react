@@ -22,23 +22,72 @@ describe("TodoList 页面", () => {
     const addFunc = Header.prop("addUndoItem");
     addFunc("待办事项");
     expect(wrapper.state("undoList").length).toBe(1);
-    expect(wrapper.state("undoList")[0]).toBe("待办事项");
+    expect(wrapper.state("undoList")[0]).toEqual({
+      status:'0',
+      value:'待办事项'
+    });
   });
 
-  it("TodoList应该给UndoList传递一个list数组和 delBtn方法", () => {
+  it("TodoList应该给UndoList传递一个list数组和 delBtn方法,changeStatus方法", () => {
     const wrapper = shallow(<TodoList />);
     const UndoList = wrapper.find("UndoList");
     expect(UndoList.prop("delBtn")).toBeTruthy();
     expect(UndoList.prop("list")).toBeTruthy();
+    expect(UndoList.prop("changeStatus")).toBeTruthy();
   });
 
   it("TodoList中delBtn方法，应该删除内容", () => {
     const wrapper = shallow(<TodoList />);
-    const UndoList = wrapper.find("UndoList");
     wrapper.setState({
-      undoList: ["1", "2", "3"],
+      undoList: [
+        {
+          status: "div",
+          value: "1",
+        },
+        {
+          status: "div",
+          value: "2",
+        },
+        {
+          status: "div",
+          value: "3",
+        },
+      ],
     });
     wrapper.instance().delBtn(1);
-    expect(wrapper.state("undoList")).toEqual(["1", "3"]);
+    expect(wrapper.state("undoList")).toEqual([
+      {
+        status: "div",
+        value: "1",
+      },
+      {
+        status: "div",
+        value: "3",
+      },
+    ]);
+  });
+
+  it("TodoList中changeStatus方法调用时候，status应该改变", () => {
+    const wrapper = shallow(<TodoList />);
+    wrapper.setState({
+      undoList: [
+        {
+          status: "0",
+          value: "1",
+        },
+        {
+          status: "0",
+          value: "2",
+        },
+        {
+          status: "0",
+          value: "3",
+        },
+      ],
+    });
+    wrapper.instance().changeStatus(1);
+    expect(wrapper.state("undoList")[1].status).toEqual("1");
+    wrapper.instance().changeStatus(1);
+    expect(wrapper.state("undoList")[1].status).toEqual("0");
   });
 });

@@ -7,7 +7,7 @@ export default class UndoList extends Component {
   }
 
   render() {
-    const { list = [], delBtn } = this.props;
+    const { list = [], delBtn,changeStatus } = this.props;
     return (
       <div className="undolist-container">
         <div className="undolist-title">
@@ -17,8 +17,8 @@ export default class UndoList extends Component {
         <ul className="ul-container">
           {list.map((item, index) => {
             return (
-              <li data-test="list-item" key={item + "-" + index} className="li-item">
-                <span>{item}</span>
+              <li data-test="list-item" key={item + "-" + index} className="li-item" onClick={()=>changeStatus(index)}>
+                <span>{item.value}</span>
                 <button
                   data-test="del-btn"
                   onClick={() => {
