@@ -78,3 +78,10 @@ body {
   outline: none;
   background-color: #e6e6e6;
 }
+
+
+.list-input{
+  width: 90%;
+  height: 80%;
+  outline: none;
+}

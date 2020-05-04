@@ -103,4 +103,65 @@ describe("UndoList", () => {
     listItems.at(index).simulate("click");
     expect(fn).toHaveBeenLastCalledWith(index);
   });
+
+  it("当某一项status为'1'时展示输入框，否则展示div", () => {
+    const testList = [
+      {
+        status: "0",
+        value: "待办1",
+      },
+      {
+        status: "1",
+        value: "待办2",
+      },
+      {
+        status: "0",
+        value: "待办3",
+      },
+    ];
+    const wrapper = shallow(<UndoList list={testList}/>);
+    const inputItems = wrapper.find('[data-test="list-input"]');
+    const spanItems = wrapper.find('[data-test="list-span"]');
+    expect(inputItems.length).toBe(1);
+    expect(spanItems.length).toBe(2);
+  });
+
+  it("当blur时候，handleBlur被调用", () => {
+    const fn = jest.fn()
+    const testList = [
+      {
+        status: "0",
+        value: "待办1",
+      },
+      {
+        status: "1",
+        value: "待办2",
+      },
+      {
+        status: "0",
+        value: "待办3",
+      },
+    ];
+    const wrapper = shallow(<UndoList list={testList} handleBlur={fn}/>);
+    const inputItem = wrapper.find('[data-test="list-input"]');
+    inputItem.simulate('blur');
+    expect(fn).toHaveBeenLastCalledWith(1);
+  });
+
+  it("当某个输入框变更时，触发valueChange方法", () => {
+    const fn = jest.fn()
+    const testList = [
+      {
+        status: "1",
+        value: "待办1",
+      }
+    ];
+    const value = '学习'
+    const wrapper = shallow(<UndoList list={testList} valueChange={fn}/>);
+    const inputItem = wrapper.find('[data-test="list-input"]');
+    inputItem.simulate('change',{
+      target:{value}
+    });
+    expect(fn).toHaveBeenLastCalledWith(0,value);
+  });
 });

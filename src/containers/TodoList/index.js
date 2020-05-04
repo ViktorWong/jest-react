@@ -21,18 +21,64 @@ export default class TodoList extends Component {
   delBtn = (index) => {
     const newList = [...this.state.undoList];
     newList.splice(index, 1);
+    console.log(newList)
     this.setState({
       undoList: newList,
     });
   };
 
   changeStatus = (index) => {
-    const newList = [...this.state.undoList];
-    newList[index].status = Math.abs(newList[index].status - 1).toString()
+    console.log(index)
+    const { undoList } = this.state;
+    const newList = undoList.map((v,i)=>{
+      if(i !== index){
+        return {
+          ...v,
+          status:"0"
+        }
+      }
+      return {
+        ...v,
+        status:"1"
+      }
+    })
     this.setState({
-      undoList: newList,
+      undoList: newList
     });
   };
+
+  handleBlur = (index) => {
+    const { undoList } = this.state;
+    const newList = undoList.map((v,i) => {
+      if(i !== index){
+        return v
+      }
+      return {
+        ...v,
+        status:"0"
+      }
+    })
+    this.setState({
+      undoList: newList
+    });
+  }
+
+  valueChange = (index,value) => {
+    console.log(index,value)
+    const { undoList } = this.state;
+    const newList = undoList.map((v,i) => {
+      if(i === index){
+        return {
+          ...v,
+          value
+        }
+      }
+      return v
+    })
+    this.setState({
+      undoList: newList
+    });
+  }
   render() {
     const { undoList } = this.state;
     return (
@@ -42,6 +88,8 @@ export default class TodoList extends Component {
           list={undoList}
           delBtn={this.delBtn}
           changeStatus={this.changeStatus}
+          handleBlur={this.handleBlur}
+          valueChange={this.valueChange}
         />
       </div>
     );
