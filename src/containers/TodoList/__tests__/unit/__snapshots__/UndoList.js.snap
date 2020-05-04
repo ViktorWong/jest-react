@@ -14,11 +14,54 @@ exports[`UndoList UndoList 组件渲染正确 1`] = `
       className="count-badge"
       data-test="count"
     >
-      0
+      2
     </div>
   </div>
   <ul
     className="ul-container"
-  />
+  >
+    <li
+      className="li-item"
+      data-test="list-item"
+      key="[object Object]-0"
+      onClick={[Function]}
+    >
+      <input
+        autoFocus={true}
+        className="list-input"
+        data-test="list-input"
+        onBlur={[Function]}
+        onChange={[Function]}
+        type="text"
+        value="待办1"
+      />
+      <button
+        className="del-btn"
+        data-test="del-btn"
+        onClick={[Function]}
+      >
+        -
+      </button>
+    </li>
+    <li
+      className="li-item"
+      data-test="list-item"
+      key="[object Object]-1"
+      onClick={[Function]}
+    >
+      <span
+        data-test="list-span"
+      >
+        待办2
+      </span>
+      <button
+        className="del-btn"
+        data-test="del-btn"
+        onClick={[Function]}
+      >
+        -
+      </button>
+    </li>
+  </ul>
 </div>
 `;

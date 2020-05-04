@@ -4,11 +4,21 @@ import UndoList from "../../components/UndoList";
 
 describe("UndoList", () => {
   it("UndoList 组件渲染正确", () => {
-    const wrapper = shallow(<UndoList />);
+    const testList = [
+      {
+        status: "1",
+        value: "待办1",
+      },
+      {
+        status: "0",
+        value: "待办2",
+      }
+    ];
+    const wrapper = shallow(<UndoList list={testList}/>);
     expect(wrapper).toMatchSnapshot();
   });
 
-  it("UndoList ,当数据为空数组时候，count 为0 ，列表无内容", () => {
+  it("UndoList ,当数据为空数组时候，count 为0 列表无内容", () => {
     const wrapper = shallow(<UndoList list={[]} />);
     const countElem = wrapper.find('[data-test="count"]');
     const listItems = wrapper.find('[data-test="list-item"]');
