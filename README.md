@@ -1,4 +1,10 @@
+# jest-react
+
+[![Build Status](https://travis-ci.com/ViktorWong/jest-react.svg?branch=master)](https://travis-ci.com/ViktorWong/jest-react) 
+[![npm package](https://img.shields.io/npm/v/jest-react.svg)](https://www.npmjs.org/package/jest-react) 
+[![npm downloads](http://img.shields.io/npm/dm/jest-react.svg)](https://www.npmjs.org/package/jest-react)
 [![Coverage Status](https://coveralls.io/repos/github/ViktorWong/jest-react/badge.svg?branch=master)](https://coveralls.io/github/ViktorWong/jest-react?branch=master)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
