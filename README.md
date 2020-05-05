@@ -1,4 +1,4 @@
-[![Coveralls](https://img.shields.io/coveralls/ViktorWong/jest-react.svg)](https://coveralls.io/github/ViktorWong/jest-react)
+[![Coverage Status](https://coveralls.io/repos/github/ViktorWong/jest-react/badge.svg?branch=master)](https://coveralls.io/github/ViktorWong/jest-react?branch=master)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
